@@ -1,0 +1,22 @@
+/* HEADER */
+header {
+    display: block;
+    width: 100vw;
+    height: 50px;
+    background-color: red;
+    text-align: center;
+    color: white;
+}
+/* DESCRIPTION */
+img {
+    max-width: 200px;
+}
+/* FOOTER */
+footer {
+    display: block;
+    width: 100vw;
+    height: 50px;
+    background-color: red;
+    text-align: center;
+    color: white;
+}
