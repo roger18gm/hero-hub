@@ -1,12 +1,12 @@
 /* HEADER */
-header {
+/* header {         HEADER CSS is in header.css
     display: block;
     width: 100vw;
     height: 50px;
     background-color: red;
     text-align: center;
     color: white;
-}
+} */
 /* MAIN section*/
 #mainSection {
     display: flex;
@@ -26,11 +26,11 @@ img {
     height: 100px;
 }
 /* FOOTER */
-footer {
+/* footer {         FOOTER CSS is in footer.css
     display: block;
     width: 100vw;
     height: 50px;
     background-color: red;
     text-align: center;
     color: white;
-}
+} */

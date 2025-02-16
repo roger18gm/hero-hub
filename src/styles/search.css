@@ -1,0 +1,12 @@
+#search-results {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media screen and (min-width:800px) {
+    #search-results {
+        flex-direction: row;
+    }
+    
+}
