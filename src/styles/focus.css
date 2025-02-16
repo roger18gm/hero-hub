@@ -7,9 +7,23 @@ header {
     text-align: center;
     color: white;
 }
-/* DESCRIPTION */
+/* MAIN section*/
+#mainSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 img {
     max-width: 200px;
+}
+/* BUTTON Menu */
+#scrollMenu {
+    display: flex;
+}
+/* QUIP space */
+#quipSection {
+    display: block;
+    height: 100px;
 }
 /* FOOTER */
 footer {
