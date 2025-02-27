@@ -6,11 +6,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build  --emptyOutDir",
+    "server": "vite src/backend/server.js",
     "start": "npm run dev",
     "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^6.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }
