@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build  --emptyOutDir",
+    "build:github-pages": "VITE_BASE=/hero-hub/ vite build",
     "server": "vite src/backend/server.js",
     "start": "npm run dev",
     "preview": "vite preview"
