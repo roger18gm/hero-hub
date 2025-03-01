@@ -18,43 +18,58 @@
                 <p>Insert information here.</p>
             </div>
         </section>
+        <div id="switchButtons">
+            <form>
+                <label>
+                    <input id="pageOneBtn" type="radio" name="option" value="option1">
+                </label>
+                <label>
+                    <input id="pageTwoBtn" type="radio" name="option" value="option2" checked>
+                </label>
+                <label>
+                    <input id="pageThreeBtn" type="radio" name="option" value="option3">
+                </label>
+            </form>
+        </div>
         <div id="scollBox">
             <section id="scrollMenu">
-                <div id="switchButtons">
-                </div>
-                    <form>
-                        <label>
-                        <input type="radio" name="option" value="option1"> 
-                        </label>
-                        <br>
-                        <label>
-                        <input type="radio" name="option" value="option2">
-                        </label>
-                        <br>
-                        <label>
-                        <input type="radio" name="option" value="option3">
-                        </label>
-                    </form><br>
-                <div>
+                <div id="pageOne">
                     <div class="text-box">
-                        <h4>Insert Title Here</h4>
-                        <p>Insert information here.</p>
+                        <h4>Power Statistics</h4>
+                        <ul>
+                            <li>Intelligence: <span id="hero-intelligence-score"></span></li>
+                            <li>Strength: <span id="hero-strength-score"></span></li>
+                            <li>Speed: <span id="hero-speed-score"></span></li>
+                            <li>Durability: <span id="hero-durability-score"></span></li>
+                            <li>Power: <span id="hero-power-score"></span></li>
+                            <li>Combat: <span id="hero-combat-score"></span></li>
+                        </ul>
                     </div>
-                    <img src="/images/placeholder.jpeg">
+                    <img class="scroll-img" src="/images/placeholder.jpeg">
                 </div>
-                <div>
+                <div id="pageTwo">
                     <div class="text-box">
-                        <h4>Insert Title Here</h4>
-                        <p>Insert information here.</p>
+                        <h4>Appearance</h4>
+                        <ul>
+                            <li>Gender: <span id="hero-gender"></span></li>
+                            <li>Race: <span id="hero-race"></span></li>
+                            <li>Height: <span id="hero-height"></span></li>
+                            <li>Hair Color: <span id="hero-hair-color"></span></li>
+                            <li>Eye Color: <span id="hero-eye-color"></span></li>
+                        </ul>
                     </div>
-                    <img src="/images/placeholder.jpeg">
+                    <img class="scroll-img" src="/images/placeholder.jpeg">
                 </div>
-                <div>
+                <div id="pageThree">
                     <div class="text-box">
-                        <h4>Insert Title Here</h4>
-                        <p>Insert information here.</p>
+                        <h4>Connects and Headquarters</h4>
+                        <ul>
+                            <li>Headquarters: <span id="hero-hq"></span></li>
+                            <li>Group Affiliations: <span id="hero-affil"></span></li>
+                            <li>Relatives: <span id="hero-relatives"></span></li>
+                        </ul>
                     </div>
-                    <img src="/images/placeholder.jpeg">
+                    <img class="scroll-img" src="/images/placeholder.jpeg">
                 </div>
             </section>
         </div>
@@ -68,5 +83,6 @@
         </section>
     </main>
     <footer>FOOTER HERE</footer>
+<script src="./scripts/focus.js"></script>
 </body>
 </html>

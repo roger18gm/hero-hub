@@ -13,17 +13,94 @@
     flex-direction: column;
     align-items: center;
 }
-img {
+#mainSection img {
     max-width: 200px;
 }
-/* BUTTON Menu */
+/* RADIO buttons */
+#switchButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* SCROLL Menu */
 #scrollMenu {
     display: flex;
+}
+.scroll-img{
+    padding: 0;
+    max-width: 45vw;
+    margin-left: auto;
+    display: block;
+    border-radius: 50px;
+    justify-self: center;
+}
+/* PAGE one */
+#pageOne {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+}
+#pageOne img{
+}
+#pageOne div{
+}
+/* PAGE two */
+#pageTwo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#pageTwo div {
+    justify-content: start;
+}
+/* PAGE three */
+#pageThree {
+    display: none;
+    grid-template-columns: 1fr 1fr;
 }
 /* QUIP space */
 #quipSection {
     display: block;
     height: 100px;
+}
+/* ANIMATIONS */
+@keyframes inRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-90%);
+        opacity: 1;
+    }
+}
+@keyframes inLeft {
+    from {
+        transform: translateX(-100%); /* Start off-screen to the left */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* Move into view */
+        opacity: 1;
+    }
+}
+@keyframes outRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+@keyframes outLeft {
+    from {
+        transform: translateX(0); /* Start off-screen to the left */
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%); /* Move into view */
+        opacity: 0;
+    }
 }
 /* FOOTER */
 /* footer {         FOOTER CSS is in footer.css
