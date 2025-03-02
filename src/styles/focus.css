@@ -22,7 +22,8 @@ body, html {
 }
 /* RADIO buttons */
 #switchButtons {
-    background-color: lawngreen;
+    width: 100vw;
+    padding-top: 1em;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,7 +31,6 @@ body, html {
 /* SCROLL Menu */
 #scrollMenu {
     display: flex;
-    background-color: lawngreen;
     padding: 1em;
 }
 .scroll-img{
@@ -61,11 +61,11 @@ body, html {
     display: none;
     grid-template-columns: 1fr 1fr;
 }
+
 /* QUIP space */
 #quipSection {
     padding: 1em;
     height: 300px;
-    background-color: red;
 }
 #quipBox{
     display: grid;
@@ -92,16 +92,16 @@ body, html {
 }
 /* QUIP BOXES */
 #firstAppearanceBtn{
-    grid-area: 1/3/2/4;
+    grid-area: 1/5/2/6;
 }
 #publisherBtn{
     grid-area: 3/1/4/2;
 }
 #powerScoreBtn{
-    grid-area: 3/4/4/5;
+    grid-area: 5/6/6/7;
 }
 #moralsBtn{
-    grid-area: 5/2/6/3;
+    grid-area: 5/3/6/4;
 }
 /* ANIMATIONS */
 @keyframes inRight {
@@ -143,6 +143,63 @@ body, html {
         transform: translateX(-100%); /* Move into view */
         opacity: 0;
     }
+}
+/* MEDIA QUERIES */
+@media screen and (min-width: 600px) {
+    .text-box{
+        font-size: 2em;
+    }
+    .text-box h4{
+        text-align: center;
+    }
+    #mainSection {
+        height: 400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        margin: 2em;
+    }
+    #mainSection img{
+        max-width: 300px;
+        align-self: center;
+        justify-self: center;
+    }
+    #mainSection h4{
+        text-align: center;
+    }
+    #switchButtons {
+        margin-top: 150px;
+    }
+    #switchButtons input{
+        margin: 1em;
+        transform: scale(150%);
+    }
+    #scrollMenu {
+        height: max-content;
+    }
+    #scrollMenu div ul{
+        margin-left: 1.2em;
+    }
+    .scroll-img {
+        transform: scale(50%);
+        grid-area: 1/1/2/2;
+    }
+    #pageOne, #pageTwo, #pageThree {
+        margin: 1em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+    .quip {
+        font-size: 1.5em;
+    }
+    #quipSection {
+        margin-top: 150px;
+    }
+
 }
 /* FOOTER */
 /* footer {         FOOTER CSS is in footer.css
