@@ -6,7 +6,7 @@
     <meta name="author" content="Caleb Wolfe">
     <meta name="description" content="This is a child page of hero hub. It is the detailed page for  hero upon selection">
     <link rel="stylesheet" href="./styles/focus.css">
-    <title>Name of Hero</title>
+    <title>Batman</title>
 </head>
 <body>
     <header>HEADER HERE</header>
@@ -14,8 +14,14 @@
         <section id="mainSection">
             <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg">
             <div class="text-box">
-                <h4>Insert Title Here</h4>
-                <p>Insert information here.</p>
+                <h4>Batman</h4>
+                <ul>
+                    <li>Full Name: <span id="hero-name"></span></li>
+                    <li>Alter Egos & Aliases: <span id="hero-off-names"></span></li>
+                    <li>Place of Birth: <span id="hero-birthPlace"></span></li>
+                    <li>First Appearance: <span id="hero-first-appearance"></span></li>
+                    <li>Moral Alignment: <span id="hero-morals"></span></li>
+                </ul>
             </div>
         </section>
         <div id="switchButtons">
@@ -75,8 +81,20 @@
         </div>
         <section id="quipSection">
             <div id="quipBox">
-                <details>
-                    <summary>Bonus Info</summary>
+                <details open id="firstAppearanceBtn" class="quip">
+                    <summary>First Appearance</summary>
+                    <p>info goes here.</p>
+                </details>
+                <details open id="publisherBtn" class="quip">
+                    <summary>Publisher</summary>
+                    <p>info goes here.</p>
+                </details>
+                <details open id="powerScoreBtn" class="quip">
+                    <summary>Power Score</summary>
+                    <p>info goes here.</p>
+                </details>
+                <details open id="moralsBtn" class="quip">
+                    <summary>Moral Alignment</summary>
                     <p>info goes here.</p>
                 </details>
             </div>
