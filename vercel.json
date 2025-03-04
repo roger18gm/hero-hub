@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "vite.config.js",  
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"  
+        }
+      },
+      {
+        "src": "api/**/*.js",  
+        "use": "@vercel/node"
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/api/(.*)",
+        "destination": "/api/$1"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/api/(.*)",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "*" },
+          { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS" }
+        ]
+      }
+    ]
+  }
