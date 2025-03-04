@@ -1,0 +1,1 @@
+import"./style-DyaW2XIo.js";const e=async r=>{fetch(`/api/server?character=${r}`).then(o=>{if(!o.ok)throw new Error("Network response was not ok");return o.json()}).then(o=>{console.log(o)}).catch(o=>{console.error("Error:",o)})};e("batman");console.log("Hello WOrld");
