@@ -6,7 +6,7 @@
     <meta name="author" content="Caleb Wolfe">
     <meta name="description" content="This is a child page of hero hub. It is the detailed page for  hero upon selection">
     <link rel="stylesheet" href="./styles/focus.css">
-    <title>Name of Hero</title>
+    <title>Batman</title>
 </head>
 <body>
     <header>HEADER HERE</header>
@@ -14,42 +14,91 @@
         <section id="mainSection">
             <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg">
             <div class="text-box">
-                <h4>Insert Title Here</h4>
-                <p>Insert information here.</p>
+                <h4>Batman</h4>
+                <ul>
+                    <li>Full Name: <span id="hero-name"></span></li>
+                    <li>Alter Egos & Aliases: <span id="hero-off-names"></span></li>
+                    <li>Place of Birth: <span id="hero-birthPlace"></span></li>
+                </ul>
             </div>
         </section>
-        <section id="scrollMenu">
-            <div>
-                <div class="text-box">
-                    <h4>Insert Title Here</h4>
-                    <p>Insert information here.</p>
+        <div id="switchButtons">
+            <form>
+                <label>
+                    <input id="pageOneBtn" type="radio" name="option" value="option1">
+                </label>
+                <label>
+                    <input id="pageTwoBtn" type="radio" name="option" value="option2" checked>
+                </label>
+                <label>
+                    <input id="pageThreeBtn" type="radio" name="option" value="option3">
+                </label>
+            </form>
+        </div>
+        <div id="scollBox">
+            <section id="scrollMenu">
+                <div id="pageOne">
+                    <div class="text-box">
+                        <h4>Power Statistics</h4>
+                        <ul>
+                            <li>Intelligence: <span id="hero-intelligence-score"></span></li>
+                            <li>Strength: <span id="hero-strength-score"></span></li>
+                            <li>Speed: <span id="hero-speed-score"></span></li>
+                            <li>Durability: <span id="hero-durability-score"></span></li>
+                            <li>Power: <span id="hero-power-score"></span></li>
+                            <li>Combat: <span id="hero-combat-score"></span></li>
+                        </ul>
+                    </div>
+                    <img class="scroll-img" src="/images/placeholder.jpeg">
                 </div>
-                <img src="/images/placeholder.jpeg">
-            </div>
-            <div>
-                <div class="text-box">
-                    <h4>Insert Title Here</h4>
-                    <p>Insert information here.</p>
+                <div id="pageTwo">
+                    <div class="text-box">
+                        <h4>Appearance</h4>
+                        <ul>
+                            <li>Gender: <span id="hero-gender"></span></li>
+                            <li>Race: <span id="hero-race"></span></li>
+                            <li>Height: <span id="hero-height"></span></li>
+                            <li>Hair Color: <span id="hero-hair-color"></span></li>
+                            <li>Eye Color: <span id="hero-eye-color"></span></li>
+                        </ul>
+                    </div>
+                    <img class="scroll-img" src="/images/placeholder.jpeg">
                 </div>
-                <img src="/images/placeholder.jpeg">
-            </div>
-            <div>
-                <div class="text-box">
-                    <h4>Insert Title Here</h4>
-                    <p>Insert information here.</p>
+                <div id="pageThree">
+                    <div class="text-box">
+                        <h4>Connections and Headquarters</h4>
+                        <ul>
+                            <li>Headquarters: <span id="hero-hq"></span></li>
+                            <li>Group Affiliations: <span id="hero-affil"></span></li>
+                            <li>Relatives: <span id="hero-relatives"></span></li>
+                        </ul>
+                    </div>
+                    <img class="scroll-img" src="/images/placeholder.jpeg">
                 </div>
-                <img src="/images/placeholder.jpeg">
-            </div>
-        </section>
+            </section>
+        </div>
         <section id="quipSection">
             <div id="quipBox">
-                <details>
-                    <summary>Bonus Info</summary>
+                <details open id="firstAppearanceBtn" class="quip">
+                    <summary>First Appearance</summary>
+                    <p>info goes here.</p>
+                </details>
+                <details open id="publisherBtn" class="quip">
+                    <summary>Publisher</summary>
+                    <p>info goes here.</p>
+                </details>
+                <details open id="powerScoreBtn" class="quip">
+                    <summary>Power Score</summary>
+                    <p>info goes here.</p>
+                </details>
+                <details open id="moralsBtn" class="quip">
+                    <summary>Moral Alignment</summary>
                     <p>info goes here.</p>
                 </details>
             </div>
         </section>
     </main>
     <footer>FOOTER HERE</footer>
+<script src="./scripts/focus.js"></script>
 </body>
 </html>
