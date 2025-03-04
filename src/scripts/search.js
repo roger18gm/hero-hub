@@ -21,23 +21,38 @@
 // .then((res) => res.json())
 // .then((data) => console.log(data));
 // }
-const getHeroData = async (heroName) => {
-    fetch(`/api/server?character=${heroName}`)
-      .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          console.log(data);
-      })
-      .catch(error => {
-          console.error('Error:', error);
-      });
-};
+// const getHeroData = async (heroName) => {
+//     fetch(`/api/server?character=${heroName}`)
+//       .then(response => {
+//           if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//           }
+//           return response.json();
+//       })
+//       .then(data => {
+//           console.log(data);
+//       })
+//       .catch(error => {
+//           console.error('Error:', error);
+//       });
+// };
   
-getHeroData("batman");
+// getHeroData("batman");
+const fetchApiData =() => {
+    fetch(`/api/server/`)
+       .then(response => {
+           if (!response.ok) {
+             throw new Error('Network response was not ok');
+           }
+           return response.json();
+       })
+       .then(data => {
+           console.log(data);
+       })
+       .catch(error => {
+           console.error('Error:', error);
+       });
+}
   
 // Usage
 // (async function apiTest() {
