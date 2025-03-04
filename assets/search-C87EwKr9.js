@@ -1,0 +1,1 @@
+import"./style-DyaW2XIo.js";const r=()=>{fetch("/api/test/").then(o=>{if(!o.ok)throw new Error("Network response was not ok");return o.json()}).then(o=>{console.log(o)}).catch(o=>{console.error("Error:",o)})};console.log("Hello WOrld");r();
