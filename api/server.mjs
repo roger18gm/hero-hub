@@ -1,34 +1,32 @@
 // api/superhero.js
 
-// In superhero.js
+export default async function GET(request) {
 
-export default function GET(request) {
-  return new Response("hello from vercel"); 
-  // const API_KEY = process.env.VITE_API_KEY;
-  // const url = `https://superheroapi.com/api/${API_KEY}`;
+  const API_KEY = process.env.VITE_API_KEY;
+  const url = `https://superheroapi.com/api/${API_KEY}`;
 
-  // console.log("Incoming request:", req.url); // Debug request URL
-  // console.log("Headers:", req.headers); // Debug headers
+  console.log("Incoming request:", req.url); // Debug request URL
+  console.log("Headers:", req.headers); // Debug headers
   
-  // // Extract query parameter
-  // const character = new URL(req.url, `http://${req.headers.host}`).searchParams.get("character");
+  // Extract query parameter
+  const character = new URL(req.url, `http://${req.headers.host}`).searchParams.get("character");
 
-  // if (!character) {
-  //   return res.status(400).json({ error: "Character query parameter is required." });
-  // }
+  if (!character) {
+    return res.status(400).json({ error: "Character query parameter is required." });
+  }
 
-  // try {
-  //   const response = await fetch(`${url}/search/${character}`);
-  //   const data = await response.json();
+  try {
+    const response = await fetch(`${url}/search/${character}`);
+    const data = await response.json();
 
-  //   // Set CORS headers
-  //   res.setHeader("Access-Control-Allow-Origin", "*");
-  //   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+    // Set CORS headers
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
 
-  //   res.status(200).json(data);
-  // } catch (error) {
-  //   res.status(500).json({ error: "Failed to fetch data" });
-  // }
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch data" });
+  }
 }
 
 
