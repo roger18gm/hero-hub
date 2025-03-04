@@ -62,3 +62,4 @@ const fetchApiData =() => {
     
 // })();
 console.log("Hello WOrld");
+fetchApiData();
