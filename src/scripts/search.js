@@ -39,7 +39,7 @@
   
 // getHeroData("batman");
 const fetchApiData =() => {
-    fetch(`/api/test/`)
+    fetch(`/api/test`)
        .then(response => {
            if (!response.ok) {
              throw new Error('Network response was not ok');
