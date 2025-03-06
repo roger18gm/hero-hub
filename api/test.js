@@ -1,3 +1,3 @@
-export default function GET(request) {
-    return new Response("hello from vercel"); 
+export default function GET(req, res) {
+    res.status(200).json({ message: "Hello from Vercel!" });
 }
