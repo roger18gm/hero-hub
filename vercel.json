@@ -18,7 +18,7 @@
         "src": "/api/test", "dest":"/api/test.js"
       }, 
       {
-        "src": "/api/server", "xdest":"/api/server.js"
+        "src": "/api/server", "dest":"/api/server.mjs"
       }
     ]
   }
