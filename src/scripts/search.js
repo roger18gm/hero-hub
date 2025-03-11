@@ -43,7 +43,26 @@ const getHelloWorld = async () => {
     const response = await fetch('/helloworld');
     const data = await response.text();
     console.log(data); // Output: Hello from Cloudflare Pages Function!
-  
 }
 
 getHelloWorld();
+
+
+const getSuperHeroData = (heroName) => {
+    fetch(`/superhero?hero=${encodeURIComponent(heroName)}`)
+      .then(response => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status}`);
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log(data);
+          // Update your UI with the hero data
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+};
+
+getSuperHeroData('batman');
