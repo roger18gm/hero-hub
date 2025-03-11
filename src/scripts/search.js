@@ -48,8 +48,8 @@ const getHelloWorld = async () => {
 getHelloWorld();
 
 
-const getSuperHeroData = (heroName) => {
-    fetch(`/superhero?hero=${encodeURIComponent(heroName)}`)
+const getSuperHeroData = async (heroName) => {
+    await fetch(`/superhero?hero=${heroName}`)
       .then(response => {
           if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.status}`);

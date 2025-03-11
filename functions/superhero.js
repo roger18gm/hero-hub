@@ -33,3 +33,5 @@ export async function onRequest(context) {
       });
     }
   }
+
+  onRequest('batman');
