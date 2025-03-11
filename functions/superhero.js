@@ -1,4 +1,4 @@
-export async function onRequest(context) {
+export async function onRequestGet(context) {
     // Get URL and parse the query parameter
     const url = new URL(context.request.url);
     const heroName = url.searchParams.get('hero');
@@ -22,7 +22,7 @@ export async function onRequest(context) {
       }
       
       const data = await response.json();
-      
+      console.log(data);
       return new Response(JSON.stringify(data), {
         headers: { "Content-Type": "application/json" }
       });
@@ -33,5 +33,3 @@ export async function onRequest(context) {
       });
     }
   }
-
-  onRequest('batman');
