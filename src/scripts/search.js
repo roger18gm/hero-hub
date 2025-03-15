@@ -1,68 +1,23 @@
-const getHeroData = (heroName) => {
-    fetch(`/api/server?hero=${encodeURIComponent(heroName)}`)
-    // fetch(`/api/server`)
-        .then(response => {
-            if (!response.ok) {
-            throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            // You would typically do something with the data here,
-            // like updating your UI
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-};
-    
-// Usage example:
-getHeroData('batman');
-  
-const fetchApiData =() => {
-    fetch(`/api/test`)
-       .then(response => {
-           if (!response.ok) {
-             throw new Error('Network response was not ok');
-           }
-           return response.json();
-       })
-       .then(data => {
-           console.log(data);
-       })
-       .catch(error => {
-           console.error('Error:', error);
-       });
-}
-  
-console.log("Hello WOrld");
-fetchApiData();
-
-const getHelloWorld = async () => {
-    const response = await fetch('/helloworld');
-    const data = await response.text();
-    console.log(data); // Output: Hello from Cloudflare Pages Function!
-}
-
-getHelloWorld();
-
+import { openCloseNavMenu } from "./navigation.mjs";
 
 const getSuperHeroData = async (heroName) => {
-    await fetch(`/superhero?hero=${heroName}`)
-      .then(response => {
-          if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status}`);
-          }
-          return response.json();
-      })
-      .then(data => {
-          console.log(data);
-          // Update your UI with the hero data
-      })
-      .catch(error => {
-          console.error('Error:', error);
-      });
+    try {
+        const response = await fetch(`http://localhost:3000/api/superheroes/${heroName}`);
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log("hero data: ", data)
+            console.log(data.results[0]);
+        } else {
+            console.error("Error: ", response.statusText);
+
+        }
+
+    } catch {
+        console.error("request failed: ", error)
+    }
 };
 
-getSuperHeroData('batman');
+
+openCloseNavMenu();
+// getSuperHeroData('Batman');
