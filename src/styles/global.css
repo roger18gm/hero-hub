@@ -1,3 +1,7 @@
 body {
     margin: 0 auto;
 }
+
+p, h1, main {
+    font-family: Inter;
+}
