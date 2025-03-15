@@ -74,14 +74,17 @@
 
 
         <section id="subscribe-section">
-            <h2>Subscribe below for a weekly hero update!</h2>
-            <form>
-                <label>First Name</label>
-                <input type="text">
-                <label>Last Name</label>
-                <input type="text">
+            <h2>Reach out to us below!</h2>
+            <form action="https://formsubmit.co/d32d7748046432d70035f881f106db52" method="POST" >
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="New submission!">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Peter Parker" required>
+                <input type="hidden" name="_autoresponse" value="Thank you for reaching out. We will get back to you as soon as possible.">
                 <label>Email Address</label>
-                <input type="email">
+                <input type="email" name="email" placeholder="super@hero.com" required>
+                <label>Message</label>
+                <textarea type="text" name="message" placeholder="Got a question? See a bug? Want to contribute? Let us know!" required rows="4"></textarea>
                 <button type="submit">Submit</button>
             </form>
         </section>
