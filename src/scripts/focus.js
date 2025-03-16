@@ -9,6 +9,7 @@ const pageThree = document.querySelector("#pageThree");
 
 // SCROLL MENU ANIMATION LOGIC.
 btnOne.addEventListener("click", () => {
+    pageOne.style.width = "100vw";
     pageOne.style.display = "grid";
     if (window.getComputedStyle(pageTwo).display != "none") {
         pageTwo.style.animation = "outRight 0.55s ease forwards";
@@ -32,6 +33,7 @@ btnOne.addEventListener("click", () => {
 });
 btnTwo.addEventListener("click", () => {
     let fromLeft;
+    pageTwo.style.width = "100vw";
     pageTwo.style.display = "grid";
     if (window.getComputedStyle(pageOne).display != "none") {
         fromLeft = false;
@@ -66,6 +68,7 @@ btnTwo.addEventListener("click", () => {
     }
 });
 btnThree.addEventListener("click", () => {
+    pageThree.style.width = "100vw";
     pageThree.style.display = "grid";
     if (window.getComputedStyle(pageOne).display != "none") {
         pageOne.style.animation = "outLeft 0.55s ease forwards";
