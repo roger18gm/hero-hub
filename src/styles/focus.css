@@ -53,7 +53,38 @@ body{
 }
 .carousel-page{
     width: 100vw;
-    height: 80vw;
+    height: max-content;
     max-height: 80vw;
+    padding: 0.5em;
     background-color: red;
+}
+
+#details-box{
+    display: flex;
+    width: 100vw;
+}
+
+#details-box 
+section {
+    width: 40vw;
+    margin-inline: 0 auto;
+}
+
+#one-liner-box article{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+    background-color: white;
+}
+
+.one-liner {
+    display: flex;
+    max-width: 6em; /* Restrict container width */
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap; /* Prevent wrapping */
+    border: solid 1px black;
+}
+
+.spacer {
+    flex-grow: 1; /* Push "Bruce Wayne" away */
 }
