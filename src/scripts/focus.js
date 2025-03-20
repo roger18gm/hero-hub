@@ -1,92 +1,54 @@
-// RADIO buttons
-const btnOne = document.querySelector("#pageOneBtn");
-const btnTwo = document.querySelector("#pageTwoBtn");
-const btnThree = document.querySelector("#pageThreeBtn");
-// PAGES
-const pageOne = document.querySelector("#pageOne");
-const pageTwo = document.querySelector("#pageTwo");
-const pageThree = document.querySelector("#pageThree");
+document.addEventListener('DOMContentLoaded', () => {
+    const expandables = document.querySelectorAll('.expandable-right');
+    
+    expandables.forEach(element => {
+      // Create a temporary element to measure the content width
+      const tempElement = element.cloneNode(true);
+      tempElement.style.position = 'absolute';
+      tempElement.style.visibility = 'hidden';
+      tempElement.style.width = 'auto';
+      document.body.appendChild(tempElement);
+      
+      // Get the width of the content
+      const contentWidth = tempElement.offsetWidth;
+      
+      // Set the custom property for this specific element
+      element.style.setProperty('--dynamic-width', contentWidth + 'px');
+      
+      // Clean up the temporary element
+      document.body.removeChild(tempElement);
+    });
+  });
 
-// SCROLL MENU ANIMATION LOGIC.
-btnOne.addEventListener("click", () => {
-    pageOne.style.width = "100vw";
-    pageOne.style.display = "grid";
-    if (window.getComputedStyle(pageTwo).display != "none") {
-        pageTwo.style.animation = "outRight 0.55s ease forwards";
-        setTimeout(() => {
-            pageTwo.style.display = "none";
-            pageTwo.style.removeProperty("animation");
-        }, 550)
-    } else if (window.getComputedStyle(pageThree).display != "none") {
-        pageThree.style.animation = "outRight 0.55s ease forwards";
-        setTimeout(() => {
-            pageThree.style.display = "none";
-            pageThree.style.removeProperty("animation");
-        }, 550)
-    } else { console.log("Issue with btn three click function. See focus.js.") }
-    requestAnimationFrame(() => {
-        pageOne.style.animation = "inLeft 0.55s forwards";
-        pageOne.addEventListener("animationend", () => {
-            pageOne.style.removeProperty("animation");
-        }, {once: true});
-    })
-});
-btnTwo.addEventListener("click", () => {
-    let fromLeft;
-    pageTwo.style.width = "100vw";
-    pageTwo.style.display = "grid";
-    if (window.getComputedStyle(pageOne).display != "none") {
-        fromLeft = false;
-        pageOne.style.animation = "outLeft 0.55s ease forwards";
-        setTimeout(() => {
-            pageOne.style.display = "none";
-            pageOne.style.removeProperty("animation");
-        }, 550)
-    } else if (window.getComputedStyle(pageThree).display != "none") {
-        fromLeft = true;
-        pageThree.style.animation = "outRight 0.55s ease forwards";
-        setTimeout(() => {
-            pageThree.style.display = "none";
-            pageThree.style.removeProperty("animation");
-        }, 550)
-    } else { console.log("Issue with btn three click function. See focus.js.") }
-    // Determine entrance.
-    if (fromLeft) {
-        requestAnimationFrame(() => {
-            pageTwo.style.animation = "inLeft 0.55s forwards";
-            pageTwo.addEventListener("animationend", () => {
-                pageTwo.style.removeProperty("animation");
-            }, {once: true});
-        })
-    } else {
-        requestAnimationFrame(() => {
-            pageTwo.style.animation = "inRight 0.55s forwards";
-            pageTwo.addEventListener("animationend", () => {
-                pageTwo.style.removeProperty("animation");
-            }, {once: true});
-        })
+  document.addEventListener('DOMContentLoaded', () => {
+    const pageOneBtn = document.querySelector('#pageOneBtn');
+    const pageTwoBtn = document.querySelector('#pageTwoBtn');
+    const carousel = document.querySelector('#carousel');
+    
+    // Button click handlers
+    pageOneBtn.addEventListener('click', () => {
+      slideTo(0);
+    });
+    
+    pageTwoBtn.addEventListener('click', () => {
+      slideTo(1);
+    });
+    
+    // Slide to specific page index (0 or 1)
+    function slideTo(pageIndex) {
+      carousel.style.transform = `translateX(-${pageIndex * 100}vw)`;
+      
+      // Update active buttons
+      if (pageIndex === 0){
+        pageOneBtn.classList.remove('inactive-page');
+        pageOneBtn.classList.add('active-page');
+        pageTwoBtn.classList.remove('active-page');
+        pageTwoBtn.classList.add('inactive-page');
+      } else if (pageIndex === 1) {
+        pageTwoBtn.classList.remove('inactive-page');
+        pageTwoBtn.classList.add('active-page');
+        pageOneBtn.classList.remove('active-page');
+        pageOneBtn.classList.add('inactive-page');
+      }
     }
-});
-btnThree.addEventListener("click", () => {
-    pageThree.style.width = "100vw";
-    pageThree.style.display = "grid";
-    if (window.getComputedStyle(pageOne).display != "none") {
-        pageOne.style.animation = "outLeft 0.55s ease forwards";
-        setTimeout(() => {
-            pageOne.style.display = "none";
-            pageOne.style.removeProperty("animation");
-        }, 550)
-    } else if (window.getComputedStyle(pageTwo).display != "none") {
-        pageTwo.style.animation = "outLeft 0.55s ease forwards";
-        setTimeout(() => {
-            pageTwo.style.display = "none";
-            pageTwo.style.removeProperty("animation");
-        }, 550)
-    } else { console.log("Issue with btn three click function. See focus.js.") }
-    requestAnimationFrame(() => {
-        pageThree.style.animation = "inRight 0.55s forwards";
-        pageThree.addEventListener("animationend", () => {
-            pageThree.style.removeProperty("animation");
-        }, {once: true});
-    })
-});
+  });
