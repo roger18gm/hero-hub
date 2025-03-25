@@ -1,3 +1,7 @@
+import { getHeroByName, getResourceById } from "./api.mjs";
+
+
+// ---------- CAROUSEL BUTTONS
 document.addEventListener('DOMContentLoaded', () => {
     const expandables = document.querySelectorAll('.expandable-right');
     
@@ -52,3 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+// ---------- CAROUSEL BUTTONS
+// ---------- DYNAMIC CONTENT
+// const batman = getherobyid("1699"); // return classic batman
+
+// const populatetitleandimage = (heroobj) =>{
+//   document.queryselector("#big-title").innerhtml = heroobj.name;
+//   document.queryselector("#hero-img-page").innerhtml = heroobj.image.screen_large_url;
+// ---------- DYNAMIC CONTENT

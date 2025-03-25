@@ -2,7 +2,7 @@
 // The base URL is " http://localhost:8080/superheroes/ "
 const baseUrl = "http://localhost:8080/superheroes/";
 
-const getHeroByName = async(name) => {
+export const getHeroByName = async(name) => {
     try {
         const response = await fetch( baseUrl + name ); // http://localhost:8080/superheroes/{name}
         if ( response.ok ) {
@@ -16,7 +16,21 @@ const getHeroByName = async(name) => {
     }
 }
 
-const getResourceById = async( resource, id ) => {
+export const getHeroById= async(id) => {
+    try {
+        const response = await fetch( baseUrl+"id/"+id); // http://localhost:8080/superheroes/id/{id}
+        if ( response.ok ) {
+            const jsonData = await response.json();
+            return jsonData.results[0];
+        } else {
+            console.error("Error in getHeroByName. Status: "+response.statusText);
+        }
+    } catch (e) {
+        console.error("Request failed in getHeroByName. Message: "+e.message);
+    }
+}
+// Origin not working.
+export const getResourceById = async( resource, id ) => {
     const specializedUrl = `${baseUrl}${resource}/${id}`; // http://localhost:8080/superheros/issue/id    
 
     if ( resource !== "origin" && resource !== "issue" ) { // Validate resource arguement
@@ -34,5 +48,32 @@ const getResourceById = async( resource, id ) => {
         }
     } catch (e) {
         console.error("Request failed in getHeroByName. Message: "+e.message);
+    }
+}
+
+const fetchFull = async(url) =>{
+    try {
+        new URL(url);
+        const encodedUrl = encodeURIComponent(url);
+
+        // Optional: Fetch test
+        fetch(encodedUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('URL is valid and accessible', data);
+            })
+            .catch(error => {
+                console.error('URL test failed:', error);
+            });
+
+        return true;
+    } catch (error) {
+        console.error('Invalid URL:', error);
+        return false;
     }
 }
