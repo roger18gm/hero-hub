@@ -56,27 +56,40 @@ body{
     min-width: 100vw;
     flex-shrink: 0;
   }
-
-#details-box{
+  #page-one h4 {
+    text-align: center;
+  }
+  #details-box{
     display: flex;
     width: 100vw;
-}
+    flex-direction: column;
+  }
 
-#details-box 
-section {
-    width: 40vw;
-    margin-inline: 0 auto;
-}
+    #alias-list {
+    padding-bottom: 0.25em;
+  }
+  #details-box 
+  section {
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+  }
 
-#one-liner-box article{
-    display: grid;
-    grid-template: repeat(2, 1fr)
-                   / repeat(6, 1fr);
+  #one-liner-box{
+    padding-top: 0.25em;
+    width: 100vw;
+    align-items: center;
+  }
+
+  #one-liner-box article{
+    display: flex;
     padding: 2em;
+    justify-content: space-between;
+    width: 80vw;
     border: solid 1px black;
     border-radius: 20px;
     background-color: white;
-}
+  }
 
 .one-liner {
     margin: 0.25em;
@@ -85,7 +98,7 @@ section {
     position: relative;
     border: solid 2px black;
     border-radius: 20px;
-    transition: width 1s ease-in-out;
+    transition: width 0.5s ease-in-out;
   }
 
   .one-liner h4 {
@@ -109,8 +122,8 @@ section {
   }
 
   .one-liner:hover .expandable-right {
-    width: var(--dynamic-width);
-    padding-right: 10px;
+    width: calc(var(--dynamic-width) + (var(--dynamic-width) / 10));
+    padding-right: calc(var(--dynamic-width) / 3);
     opacity: 1;
   }
 
@@ -130,35 +143,46 @@ section {
   #origin-box {
     width: 100vw;
   }
-
+  #origin-box p {
+    padding: 0.25em 3em;
+    text-align: justify;
+    line-height: 2;
+  }
   #page-two{
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 2em;
+    margin: 2.5em;
     height: max-content;
-    background-color: aquamarine;
+    border: solid 2px black;
+    border-radius: 20px;
 }
 
-#character-info-box{
+#column-one{
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-content: space-evenly;
 }
 
 #page-two h4{
-    display: inline-block;
     padding: 0.25em;
     border: solid 2px black;
     border-radius: 20px;
     background-color: white;
 }
 
-#first-issue{
+#column-two{
     display: flex;
+    align-self: flex-start;
+    flex-direction: column;
     justify-content: space-around;
     align-content: space-around;
 }
 
-#first-issue img {
+#column-one img {
     width: 250px;
     height: 300px;
     background-color: gray;
