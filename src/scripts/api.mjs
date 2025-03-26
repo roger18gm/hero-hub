@@ -16,7 +16,7 @@ export const getHeroByName = async(name) => {
     }
 }
 
-export const getHeroById= async(id) => {
+export const getHeroById = async(id) => {
     try {
         const response = await fetch( baseUrl+"id/"+id); // http://localhost:8080/superheroes/id/{id}
         if ( response.ok ) {
@@ -48,32 +48,5 @@ export const getResourceById = async( resource, id ) => {
         }
     } catch (e) {
         console.error("Request failed in getHeroByName. Message: "+e.message);
-    }
-}
-
-const fetchFull = async(url) =>{
-    try {
-        new URL(url);
-        const encodedUrl = encodeURIComponent(url);
-
-        // Optional: Fetch test
-        fetch(encodedUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('URL is valid and accessible', data);
-            })
-            .catch(error => {
-                console.error('URL test failed:', error);
-            });
-
-        return true;
-    } catch (error) {
-        console.error('Invalid URL:', error);
-        return false;
     }
 }

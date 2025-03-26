@@ -1,8 +1,8 @@
-import { getHeroByName, getResourceById } from "./api.mjs";
+import { getHeroByName, getResourceById, getHeroById } from "./api.mjs";
 
 
 // ---------- CAROUSEL BUTTONS
-document.addEventListener('DOMContentLoaded', () => {
+  const setDynamicWidth = () => {
     const expandables = document.querySelectorAll('.expandable-right');
     
     expandables.forEach(element => {
@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Clean up the temporary element
       document.body.removeChild(tempElement);
     });
-  });
+  }
+  document.addEventListener('DOMContentLoaded', setDynamicWidth);
 
   document.addEventListener('DOMContentLoaded', () => {
     const pageOneBtn = document.querySelector('#pageOneBtn');
@@ -58,9 +59,49 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 // ---------- CAROUSEL BUTTONS
 // ---------- DYNAMIC CONTENT
-// const batman = getherobyid("1699"); // return classic batman
+const batman = await getHeroById("1699"); // return classic batman
 
-// const populatetitleandimage = (heroobj) =>{
-//   document.queryselector("#big-title").innerhtml = heroobj.name;
-//   document.queryselector("#hero-img-page").innerhtml = heroobj.image.screen_large_url;
+const populateTitleAndImage = (heroObj) =>{
+  document.getElementsByTagName('title')[0].innerHTML = heroObj.name;
+  document.querySelector("#big-title").innerHTML = heroObj.name;
+  document.querySelector("#hero-img-page").src = heroObj.image.screen_large_url;
+}
+
+const getAliases = (heroObj) =>{
+  const string = heroObj.aliases;
+  return string.split("\n");
+}
+
+const populatePageOne = (heroObj) =>{
+  document.querySelector("#hero-name-span").innerHTML = heroObj.name;
+
+  const aliasList = document.querySelector("#alias-list");
+  getAliases(heroObj).forEach( alias =>{
+    aliasList.insertAdjacentHTML( "beforeend", `<li>${alias}</li>`);
+  });
+
+  document.querySelector("#heroRealName").innerHTML = heroObj.real_name;
+  document.querySelector("#heroSpecies").innerHTML = heroObj.origin.name;
+
+  let sex;
+  switch (heroObj.gender) {
+    case 1:
+      sex = "Male";
+      break;
+    case 2:
+      sex = "Female";
+      break;
+    case 3:
+      sex = "Other";
+      break;
+    default:
+      console.error("Error inside populatePageOne gender switch statement.")
+  }
+  document.querySelector("#heroSex").innerHTML = sex;
+  document.querySelector("#heroDoB").innerHTML = heroObj.birth;
+  setDynamicWidth();
+}
+populatePageOne(batman);
+populateTitleAndImage(batman);
 // ---------- DYNAMIC CONTENT
+
