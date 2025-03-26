@@ -81,7 +81,7 @@ const populatePageOne = (heroObj) =>{
   });
 
   document.querySelector("#heroRealName").innerHTML = heroObj.real_name;
-  document.querySelector("#heroSpecies").innerHTML = heroObj.origin.name;
+  document.querySelector("#heroOrigin").innerHTML = heroObj.origin.name;
 
   let sex;
   switch (heroObj.gender) {
