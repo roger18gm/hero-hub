@@ -29,24 +29,18 @@ export const getHeroById = async(id) => {
         console.error("Request failed in getHeroByName. Message: "+e.message);
     }
 }
-// Origin not working.
-export const getResourceById = async( resource, id ) => {
-    const specializedUrl = `${baseUrl}${resource}/${id}`; // http://localhost:8080/superheros/issue/id    
 
-    if ( resource !== "origin" && resource !== "issue" ) { // Validate resource arguement
-        console.error("Invalid resource arg named in getOriginOrIssuebyId"); 
-        return "Invalid resource arguement. Specify origin or issue."
-    }
-
+export const getIssueById = async(id) =>{
     try {
-        const response = await fetch(specializedUrl);
+        const response = await fetch( baseUrl+"issue/"+id); // http://localhost:8080/superheroes/issue/{id}
         if ( response.ok ) {
             const jsonData = await response.json();
-            return jsonData;
+            console.log(jsonData.results);
+            return jsonData.results;
         } else {
-            console.error("Error in getHeroByName. Status: "+response.statusText);
+            console.error("Error in getIssueById. Status: "+response.statusText);
         }
     } catch (e) {
-        console.error("Request failed in getHeroByName. Message: "+e.message);
+        console.error("Request failed in getIssueById. Message: "+e.message);
     }
 }

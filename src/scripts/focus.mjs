@@ -1,4 +1,6 @@
-import { getHeroByName, getResourceById, getHeroById } from "./api.mjs";
+import { getHeroByName, 
+         getHeroById,
+         getIssueById } from "./api.mjs";
 
 
 // ---------- CAROUSEL BUTTONS
@@ -101,7 +103,16 @@ const populatePageOne = (heroObj) =>{
   document.querySelector("#heroDoB").innerHTML = heroObj.birth;
   setDynamicWidth();
 }
+
+const populatePageTwo = ( heroObj, issue ) =>{
+  console.log(issue);
+  document.querySelector("#hero-publisher").innerHTML = "Publisher: "+heroObj.publisher.name;
+  document.querySelector("#issue-img").src = issue.image.original_url;
+  document.querySelector("#appearance-count").innerHTML = heroObj.count_of_issue_appearances;
+}
 populatePageOne(batman);
 populateTitleAndImage(batman);
+
+populatePageTwo( batman, await getIssueById("105764") );
 // ---------- DYNAMIC CONTENT
 
