@@ -1,3 +1,4 @@
+import { getHeroByName } from "./api.mjs";
 import { handleSearchQuery } from "./handleSearchQuery.mjs";
 import { openCloseNavMenu } from "./navigation.mjs";
 
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             getSuperHeroData(query);
             console.log("success?")
+
         } catch (error) {
             console.error(error);
         }
@@ -22,23 +24,39 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// const getSuperHeroData = async (heroName) => {
+//     try {
+//         // const response = await fetch(`http://localhost:3000/api/superheroes/${heroName}`);
+//         const response = await getHeroByName(heroName);
+
+//         if (response.ok) {
+//             const data = await response.json();
+//             console.log("hero data: ", data)
+//             console.log(data.results[0]);
+//             displaySearchResultHeroCards(data.results);
+//         } else {
+//             console.error("Error: ", response.statusText);
+//         }
+//     } catch {
+//         console.error("request failed: ", error)
+//     }
+// };
+
 const getSuperHeroData = async (heroName) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/superheroes/${heroName}`);
+        const data = await getHeroByName(heroName); // Get the JSON data directly
 
-        if (response.ok) {
-            const data = await response.json();
-            console.log("hero data: ", data)
+        if (data) { // Check if data exists
+            console.log("hero data: ", data);
             console.log(data.results[0]);
             displaySearchResultHeroCards(data.results);
         } else {
-            console.error("Error: ", response.statusText);
+            console.error("Error: Hero data not found or error occurred.");
         }
-    } catch {
-        console.error("request failed: ", error)
+    } catch (error) {
+        console.error("request failed: ", error);
     }
 };
-
 
 openCloseNavMenu();
 handleSearchQuery();
