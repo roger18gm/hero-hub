@@ -1,6 +1,8 @@
 import { getHeroByName, 
          getHeroById,
          getIssueById } from "./api.mjs";
+import { handleSearchQuery } from "./handleSearchQuery.mjs";
+import { openCloseNavMenu } from "./navigation.mjs";
 
 
 // ---------- CAROUSEL BUTTONS
@@ -61,12 +63,10 @@ import { getHeroByName,
   });
 // ---------- CAROUSEL BUTTONS
 // ---------- DYNAMIC CONTENT
-const batman = await getHeroById("1699"); // return classic batman
-
 const populateTitleAndImage = (heroObj) =>{
   document.getElementsByTagName('title')[0].innerHTML = heroObj.name;
   document.querySelector("#big-title").innerHTML = heroObj.name;
-  document.querySelector("#hero-img-page").src = heroObj.image.screen_large_url;
+  document.querySelector("#hero-img-page").src = heroObj.image.original_url;
 }
 
 const getAliases = (heroObj) =>{
@@ -76,7 +76,9 @@ const getAliases = (heroObj) =>{
 
 const populatePageOne = (heroObj) =>{
   document.querySelector("#hero-name-span").innerHTML = heroObj.name;
-
+  document.querySelector("#big-title").style.backgroundImage = `url("${heroObj.image.screen_large_url}")`; // rgb(211, 243, 159)
+  document.querySelector("#origin-box").innerHTML = heroObj.deck;
+  document.querySelector("#origin-box").style
   const aliasList = document.querySelector("#alias-list");
   getAliases(heroObj).forEach( alias =>{
     aliasList.insertAdjacentHTML( "beforeend", `<li>${alias}</li>`);
@@ -105,14 +107,39 @@ const populatePageOne = (heroObj) =>{
 }
 
 const populatePageTwo = ( heroObj, issue ) =>{
-  console.log(issue);
-  document.querySelector("#hero-publisher").innerHTML = "Publisher: "+heroObj.publisher.name;
   document.querySelector("#issue-img").src = issue.image.original_url;
-  document.querySelector("#appearance-count").innerHTML = heroObj.count_of_issue_appearances;
+  document.querySelector("#issue-desc").innerHTML = issue.description !== null ? issue.description : "No description available.";
+  document.querySelector("#issue-name").innerHTML = issue.name !== null ? `Issue name: ${issue.name}` : `<strong>${heroObj.name}'s First Issue Details</strong>`;
+  document.querySelector("#hero-publisher").innerHTML = heroObj.publisher.name !== null ? heroObj.publisher.name : "N/A";
+  document.querySelector("#appearance-count").innerHTML = heroObj.count_of_issue_appearances !== null ? heroObj.count_of_issue_appearances : "N/A";
+  document.querySelector("#cover-date").innerHTML = issue.cover_date !== null ? issue.cover_date : "N/A";
+  document.querySelector("#store-date").innerHTML = issue.store_date !== null ? issue.store_date: "N/A";
+  setDynamicWidth();
 }
-populatePageOne(batman);
-populateTitleAndImage(batman);
 
-populatePageTwo( batman, await getIssueById("105764") );
+const initFocusPage = async() =>{
+  const batman = await getHeroById(1699);
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (urlParams.has("heroId")) {
+    const hero = await getHeroById(urlParams.get("heroId"));
+    console.log(hero);
+    const issue = await getIssueById(hero.first_appeared_in_issue.id);
+
+    populateTitleAndImage(hero);
+    populatePageOne(hero);
+    populatePageTwo(hero, issue);
+  } else {
+    populatePageOne(batman);
+    populateTitleAndImage(batman);
+    populatePageTwo( batman, issue );
+  }
+  const name = urlParams.get('name'); // "John"
+  const age = urlParams.get('age');   // "25"
+}
+
 // ---------- DYNAMIC CONTENT
-
+// ---------- INIT PAGE
+openCloseNavMenu();
+handleSearchQuery();
+initFocusPage();

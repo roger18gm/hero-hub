@@ -35,7 +35,6 @@ export const getIssueById = async(id) =>{
         const response = await fetch( baseUrl+"issue/"+id); // http://localhost:8080/superheroes/issue/{id}
         if ( response.ok ) {
             const jsonData = await response.json();
-            console.log(jsonData.results);
             return jsonData.results;
         } else {
             console.error("Error in getIssueById. Status: "+response.statusText);
