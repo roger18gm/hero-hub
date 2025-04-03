@@ -3,10 +3,7 @@ import { getHeroByName,
          getIssueById } from "./api.mjs";
 import { handleSearchQuery } from "./handleSearchQuery.mjs";
 import { openCloseNavMenu } from "./navigation.mjs";
-import { getFavoriteHeroIds,
-         saveFavoriteHeroIds,
-         eraseFavoriteHeroIds,
-         favoriteHero,
+import { favoriteHero,
          removeFromFavorites,
          checkHeroPresence } from "./favoriteHero.mjs";
 
@@ -128,8 +125,10 @@ const initFocusPage = async() =>{
 
   if (urlParams.has("heroId")) {
     const hero = await getHeroById(urlParams.get("heroId"));
+    activeHero = hero;
     if (checkHeroPresence( hero )){
       document.querySelector("#saveHeroBtn").innerHTML = "Favorited";
+      document.querySelector("#saveHeroBtn").classList.add("favorited");
     }
     console.log(hero);
     const issue = await getIssueById(hero.first_appeared_in_issue.id);
@@ -139,6 +138,7 @@ const initFocusPage = async() =>{
     populatePageTwo(hero, issue);
   } else {
     const batman = await getHeroById(1699);
+    activeHero = batman;
     populatePageOne(batman);
     populateTitleAndImage(batman);
     populatePageTwo( batman, issue );
@@ -147,6 +147,39 @@ const initFocusPage = async() =>{
 
 // ---------- DYNAMIC CONTENT
 // ---------- INIT PAGE
+var activeHero;
 openCloseNavMenu();
 handleSearchQuery();
 initFocusPage();
+// ---------- INIT PAGE
+// ---------- MANAGE FAVORITE HERO
+const favoriteHeroManager = ( hero, save ) =>{
+  document.querySelector("#saveHeroBtn").classList.remove("favorited");
+  switch (save) {
+    case true:
+
+      if (!checkHeroPresence( hero )){
+        favoriteHero( hero );
+        document.querySelector("#saveHeroBtn").innerHTML = "Favorited";
+        document.querySelector("#saveHeroBtn").classList.add("favorited");
+      }
+      break;
+
+    case false:
+
+      if(checkHeroPresence( hero )){
+        removeFromFavorites( hero );
+        document.querySelector("#saveHeroBtn").innerHTML = "Favorite Hero?";
+      }
+      break;
+  }
+}
+
+document.querySelector("#saveHeroBtn").addEventListener("click", (event) =>{
+  if (event.target.classList.contains("favorited")){
+    favoriteHeroManager( activeHero, false );
+  } else {
+    favoriteHeroManager( activeHero, true );
+  }
+});
+// ---------- MANAGE FAVORITE HERO
