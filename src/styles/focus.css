@@ -23,8 +23,16 @@ body{
         2px 2px 0 black;
 }
 
+.saveHeroBtn {
+  padding: 1em;
+  margin-left: 3.5vw;
+  background-color: rgb(211, 243, 159);
+  border-radius: 20px;
+}
+
 #hero-img-page {
     margin: 0 auto;
+    margin-top: -3em;
     max-height: 70vh;
     display: block;
 }
