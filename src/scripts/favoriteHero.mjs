@@ -9,14 +9,14 @@ const getFavoriteHeroIds= () =>{
     return localStorage.getItem("favoriteHeroIds") ? JSON.parse( localStorage.getItem( "favoriteHeroIds" ) ) : null;
 }
 
-const saveFavoriteHeroIds= ( arrayOfIds ) =>{
+const saveFavoriteHeroIds = ( arrayOfIds ) =>{
     /*
     * Saves an array as "favoriteHeroIds" inside local storage.
     */
     localStorage.setItem("favoriteHeroIds", JSON.stringify( arrayOfIds ));
 }
 
-const eraseStorage = () =>{
+const eraseFavoriteHeroIds = () =>{
     /*
     * Use for testing. Clears local storage. 
     */
