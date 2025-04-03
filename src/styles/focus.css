@@ -60,6 +60,7 @@ body{
 
 .active-page{
     background-color: aquamarine;
+    box-shadow: inset 1px 1px 3px black;
 }
 .inactive-page{
     background-color: white;
@@ -120,7 +121,7 @@ body{
     border: solid 2px black;
     border-radius: 20px;
     transition: width 0.5s ease-in-out;
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
   }
 
   .one-liner:hover {

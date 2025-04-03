@@ -25,12 +25,16 @@ import { favoriteHero,
       
       // Set the custom property for this specific element
       element.style.setProperty('--dynamic-width', contentWidth + 'px');
+      const textLength = element.textContent.length;
+      
+      if (textLength <= 3) {
+        element.style.paddingRight = "1em";
+      }
       
       // Clean up the temporary element
       document.body.removeChild(tempElement);
     });
   }
-  document.addEventListener('DOMContentLoaded', setDynamicWidth);
 
   document.addEventListener('DOMContentLoaded', () => {
     const pageOneBtn = document.querySelector('#pageOneBtn');
@@ -87,10 +91,10 @@ const populatePageOne = (heroObj) =>{
     aliasList.insertAdjacentHTML( "beforeend", `<li>${alias}</li>`);
   });
 
-  document.querySelector("#heroRealName").innerHTML = heroObj.real_name;
-  document.querySelector("#heroOrigin").innerHTML = heroObj.origin.name;
+  document.querySelector("#heroRealName").innerHTML = heroObj.real_name !== null ? heroObj.real_name : "Not Available";
+  document.querySelector("#heroOrigin").innerHTML = heroObj.origin.name !== null ? heroObj.origin.name : "Not Available";  
 
-  let sex;
+  let sex = null;
   switch (heroObj.gender) {
     case 1:
       sex = "Male";
@@ -101,11 +105,9 @@ const populatePageOne = (heroObj) =>{
     case 3:
       sex = "Other";
       break;
-    default:
-      console.error("Error inside populatePageOne gender switch statement.")
   }
-  document.querySelector("#heroSex").innerHTML = sex;
-  document.querySelector("#heroDoB").innerHTML = heroObj.birth;
+  document.querySelector("#heroSex").innerHTML = sex !== null ? sex : "Not Available";
+  document.querySelector("#heroDoB").innerHTML = heroObj.birth !== null ? heroObj.birth : "Not Available";
   setDynamicWidth();
 }
 
@@ -114,9 +116,9 @@ const populatePageTwo = ( heroObj, issue ) =>{
   document.querySelector("#issue-desc").innerHTML = issue.description !== null ? issue.description : "No description available.";
   document.querySelector("#issue-name").innerHTML = issue.name !== null ? `Issue name: ${issue.name}` : `<strong>${heroObj.name}'s First Issue Details</strong>`;
   document.querySelector("#hero-publisher").innerHTML = heroObj.publisher.name !== null ? heroObj.publisher.name : "N/A";
-  document.querySelector("#appearance-count").innerHTML = heroObj.count_of_issue_appearances !== null ? heroObj.count_of_issue_appearances : "N/A";
-  document.querySelector("#cover-date").innerHTML = issue.cover_date !== null ? issue.cover_date : "N/A";
-  document.querySelector("#store-date").innerHTML = issue.store_date !== null ? issue.store_date: "N/A";
+  document.querySelector("#appearance-count").innerHTML = heroObj.count_of_issue_appearances !== null ? heroObj.count_of_issue_appearances : "Not Available";
+  document.querySelector("#cover-date").innerHTML = issue.cover_date !== null ? issue.cover_date : "Not Available";
+  document.querySelector("#store-date").innerHTML = issue.store_date !== null ? issue.store_date: "Not Available";
   setDynamicWidth();
 }
 
@@ -129,6 +131,8 @@ const initFocusPage = async() =>{
     if (checkHeroPresence( hero )){
       document.querySelector("#saveHeroBtn").innerHTML = "Favorited";
       document.querySelector("#saveHeroBtn").classList.add("favorited");
+    } else {
+      document.querySelector("#saveHeroBtn").innerHTML = "Favorite Hero?";
     }
     console.log(hero);
     const issue = await getIssueById(hero.first_appeared_in_issue.id);
@@ -139,6 +143,12 @@ const initFocusPage = async() =>{
   } else {
     const batman = await getHeroById(1699);
     activeHero = batman;
+    if (checkHeroPresence( activeHero )){
+      document.querySelector("#saveHeroBtn").innerHTML = "Favorited";
+      document.querySelector("#saveHeroBtn").classList.add("favorited");
+    } else {
+      document.querySelector("#saveHeroBtn").innerHTML = "Favorite Hero?";
+    }
     populatePageOne(batman);
     populateTitleAndImage(batman);
     populatePageTwo( batman, issue );
