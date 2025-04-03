@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hero Hub Dashboard</title>
-  <script type="module" crossorigin src="/assets/focus-BYUrNEz1.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/style-DAmnDwT-.js">
-  <link rel="stylesheet" crossorigin href="/assets/style-rZ-YkWhs.css">
+  <script type="module" crossorigin src="/assets/focus-BklunsIu.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/navigation-BZYgtyco.js">
+  <link rel="modulepreload" crossorigin href="/assets/api-CwBaQWLa.js">
+  <link rel="stylesheet" crossorigin href="/assets/navigation-3ulu0fvH.css">
 </head>
 <body>
     <header>
@@ -69,33 +70,26 @@
             <!-- carousel page one -->
             <div class="carousel-page">
                 <div id="page-one">
-                    <h4>The Origin of <span class="hero-name-span">[Hero name]</span></h4>
-                    <div id="origin-box"><p>A wealthy philanthropist, Thomas Wayne, his wife, Martha, and their 8-year-old son, Bruce Wayne, were coming out of a movie theater at 10:47 p.m. As they stepped onto Park Row (now called Crime Alley), a thug called Joe Chill, armed with a gun, approached them from the shadows to steal the pearl necklace Martha was wearing. Thomas, moving in to protect his wife, was shot and killed by Chill, causing Martha to scream in terror. Chill then shot and killed her, while shouting, \"This'll shut you up!\" Bruce, traumatized by the deaths of his parents, would never be the same again.
-
-                        Afterward, Bruce was raised by his wise and loyal butler, Alfred Pennyworth, and inherited his family's vast fortune as well as his father's company, Wayne Enterprises. Standing at his parent's gravestones, Bruce made a solemn oath to avenge their deaths.
-                        
-                        Despite the fiscal security, happiness eluded Bruce. Young Bruce was comforted by Dr. Leslie Thompkins, who helped him to mourn his parents and find a purpose in life. At age fourteen, Bruce started a twelve-year walkabout around the world seeking experts in many fields, training himself mentally and physically. From an academic standpoint, he studied at Cambridge in England, the Sorbonne in France, and other famous European universities. A Frenchman named Henri Ducard taught him man-hunting, a ninja named Kirigi taught him stealth, an African bushman trained him in the art of the hunt, and Nepalese monks taught him healing.
-                        
-                        Bruce returned to Gotham City, where he became a vigilante. But despite all his honed skills, he knew something was missing. Bruce believed criminals to be a \"superstitious and cowardly lot,\" and to rid Gotham of evil, he needed to reinvent himself to become a terrifying symbol that would strike fear into the hearts of criminals. While in his father's study, a large bat crashed through the window. Bruce saw this as an omen and recalled his fear of bats as a child. This would be his symbol; the Bat would strike terror into the Gotham underworld. Using his vast wealth, Bruce designed a costume and state of the art equ</p></div>
+                    <h2>The Origin of <span id="hero-name-span">[Hero name]</span></h2>
+                    <div id="origin-box"></div>
                     <div id="details-box">
                         <section>
-                            <ul id="alias-list">
-                                <li>Alias list area</li>
+                            <ul id="alias-list"><h3>Aliases</h3>
                             </ul>
                         </section>
                         <section id="one-liner-box">
                             <article>
                                 <div class="one-liner">
-                                    <h4>Real Name<div class="spacer"></div><span class="expandable-right">Bruce Wayne</span></h4>
+                                    <h4>Real Name: <div class="spacer"></div><span class="expandable-right" id="heroRealName">Bruce Wayne</span></h4>
                                 </div>
                                 <div class="one-liner">
-                                    <h4>Species<div class="spacer"></div><span class="expandable-right">Human</span></h4>
+                                    <h4>Origin: <div class="spacer"></div><span class="expandable-right" id="heroOrigin">Human</span></h4>
                                 </div>
                                 <div class="one-liner">
-                                    <h4>Gender<div class="spacer"></div><span class="expandable-right">Male</span></h4>
+                                    <h4>Gender: <div class="spacer"></div><span class="expandable-right" id="heroSex">Male</span></h4>
                                 </div>
                                 <div class="one-liner">
-                                    <h4>Birth<div class="spacer"></div><span class="expandable-right">??/??/????</span></h4>
+                                    <h4>Birth: <div class="spacer"></div><span class="expandable-right" id="heroDoB">??/??/????</span></h4>
                                 </div>
                             </article>
                         </section>
@@ -104,16 +98,36 @@
             </div>
             <!-- carousel page two -->
             <div class="carousel-page">
-                <div id="page-two">
-                    <div id="column-one">
-                        <h4>Publisher: DC COMICS</h4>
-                        <img>
-                    </div>
-                    <div id="column-two">
-                        <h4>Number of issues: ######</h4>
-                        <ul> [Title of first issue]
-                            <li>First issues data here.</li>
-                        </ul>
+                <div>
+                    <div id="page-two">
+                        <div id="column-one">
+                            <h3 id="issue-name"></h3>
+                            <img id="issue-img">
+                            <div id="issue-desc"></div>
+                        </div>
+                        <!-- <div id="column-two">
+                            <h4 id="hero-publisher">Publisher: DC COMICS</h4>
+                            <h4>Number of issues: <span id="appearance-count"></span><h4>
+                            <ul id="issue-details"> [Title of first issue]
+                                <li>First issues data here.</li>
+                            </ul>
+                        </div> -->
+                        <section id="one-liner-box">
+                            <article>
+                                <div class="one-liner">
+                                    <h4>Publisher: <div class="spacer"></div><span class="expandable-right" id="hero-publisher">Bruce Wayne</span></h4>
+                                </div>
+                                <div class="one-liner">
+                                    <h4>Number of Apperances: <div class="spacer"></div><span class="expandable-right" id="appearance-count">Human</span></h4>
+                                </div>
+                                <div class="one-liner">
+                                    <h4>Cover Date: <div class="spacer"></div><span class="expandable-right" id="cover-date">Male</span></h4>
+                                </div>
+                                <div class="one-liner">
+                                    <h4>Store Date: <div class="spacer"></div><span class="expandable-right" id="store-date">??/??/????</span></h4>
+                                </div>
+                            </article>
+                        </section>
                     </div>
                 </div>
             </div>
