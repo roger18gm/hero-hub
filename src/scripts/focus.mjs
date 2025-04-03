@@ -71,7 +71,7 @@ import { favoriteHero,
 // ---------- CAROUSEL BUTTONS
 // ---------- DYNAMIC CONTENT
 const populateTitleAndImage = (heroObj) =>{
-  document.getElementsByTagName('title')[0].innerHTML = heroObj.name;
+  document.getElementsByTagName('title')[0].innerHTML = "HeroHub | "+heroObj.name;
   document.querySelector("#big-title").innerHTML = heroObj.name;
   document.querySelector("#hero-img-page").src = heroObj.image.original_url;
 }
