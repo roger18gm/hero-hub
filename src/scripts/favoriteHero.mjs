@@ -54,5 +54,5 @@ const checkHeroPresence = ( heroObj ) =>{
     * Checks to see if a hero's id is already saved.
     */
     const favoriteHeroIds = getFavoriteHeroIds();
-    return favoriteHeroIds.some( id => id === heroObj.id );
+    return favoriteHeroIds !== null ? favoriteHeroIds.some( id => id === heroObj.id ) : false;
 }

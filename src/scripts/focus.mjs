@@ -3,6 +3,12 @@ import { getHeroByName,
          getIssueById } from "./api.mjs";
 import { handleSearchQuery } from "./handleSearchQuery.mjs";
 import { openCloseNavMenu } from "./navigation.mjs";
+import { getFavoriteHeroIds,
+         saveFavoriteHeroIds,
+         eraseFavoriteHeroIds,
+         favoriteHero,
+         removeFromFavorites,
+         checkHeroPresence } from "./favoriteHero.mjs";
 
 
 // ---------- CAROUSEL BUTTONS
@@ -118,11 +124,13 @@ const populatePageTwo = ( heroObj, issue ) =>{
 }
 
 const initFocusPage = async() =>{
-  const batman = await getHeroById(1699);
   const urlParams = new URLSearchParams(window.location.search);
 
   if (urlParams.has("heroId")) {
     const hero = await getHeroById(urlParams.get("heroId"));
+    if (checkHeroPresence( hero )){
+      document.querySelector("#saveHeroBtn").innerHTML = "Favorited";
+    }
     console.log(hero);
     const issue = await getIssueById(hero.first_appeared_in_issue.id);
 
@@ -130,12 +138,11 @@ const initFocusPage = async() =>{
     populatePageOne(hero);
     populatePageTwo(hero, issue);
   } else {
+    const batman = await getHeroById(1699);
     populatePageOne(batman);
     populateTitleAndImage(batman);
     populatePageTwo( batman, issue );
   }
-  const name = urlParams.get('name'); // "John"
-  const age = urlParams.get('age');   // "25"
 }
 
 // ---------- DYNAMIC CONTENT
