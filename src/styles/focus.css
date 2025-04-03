@@ -14,13 +14,14 @@ body{
     border-radius: 20px;
     text-align: center;
     margin-inline: 2em;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
-    color: rgb(211, 243, 159);
+    box-shadow: 5px 5px 8px (0, 0, 0, 0.4);
+    color: aquamarine;
     text-shadow: 
         -1px -1px 0 black,  
         1px -1px 0 black,
         -1px 1px 0 black,
         2px 2px 0 black;
+    transition: color 0.5s ease-in-out;
 }
 
 #saveHeroBtn {
@@ -28,6 +29,12 @@ body{
   margin-left: 3.5vw;
   background-color: rgb(211, 243, 159);
   border-radius: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+#saveHeroBtn:hover {
+  transform: scale(1.2);
+  background-color: aquamarine;
 }
 
 #hero-img-page {
@@ -52,7 +59,7 @@ body{
 }
 
 .active-page{
-    background-color: #6A2CCD;
+    background-color: aquamarine;
 }
 .inactive-page{
     background-color: white;
@@ -113,6 +120,11 @@ body{
     border: solid 2px black;
     border-radius: 20px;
     transition: width 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+  }
+
+  .one-liner:hover {
+    background-color: aquamarine;
   }
 
   .one-liner h4 {
