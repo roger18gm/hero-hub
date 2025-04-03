@@ -1,3 +1,7 @@
+// This file will have the main functions for working with the local storage.
+// I'll leave these functions broad so that they can be used elsewhere. This 
+// enables you to tailor functionality for other aspects of the site.
+
 const getFavoriteHeroIds= () =>{
     /*
     * Gets the local storage array containing the favorited hero ids.
@@ -10,6 +14,13 @@ const saveFavoriteHeroIds= ( arrayOfIds ) =>{
     * Saves an array as "favoriteHeroIds" inside local storage.
     */
     localStorage.setItem("favoriteHeroIds", JSON.stringify( arrayOfIds ));
+}
+
+const eraseStorage = () =>{
+    /*
+    * Use for testing. Clears local storage. 
+    */
+   localStorage.removeItem("favoriteHeroIds");
 }
 
 const favoriteHero = ( heroObj ) =>{
