@@ -221,7 +221,15 @@ details[open] {
 
 details p{
   text-align: center;
+  font-size: xx-large;
+  color: aquamarine;
+    text-shadow: 
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        2px 2px 0 black;
 }
+
 
 #one-liner-box:last-of-type{
     width: 100%;
