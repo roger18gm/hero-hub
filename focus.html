@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hero Hub Dashboard</title>
-  <script type="module" crossorigin src="/assets/focus-BdIeFL7V.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/api-DbJ_kNL1.js">
+  <script type="module" crossorigin src="/assets/focus-C5oDzkAM.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/api-Cdm6-UTf.js">
   <link rel="modulepreload" crossorigin href="/assets/favoriteHero-Cj1f5rFi.js">
-  <link rel="stylesheet" crossorigin href="/assets/api-BDAxxIxR.css">
+  <link rel="stylesheet" crossorigin href="/assets/api-DvQcs-hC.css">
 </head>
 <body>
     <header>
@@ -71,7 +71,7 @@
             <!-- carousel page one -->
             <div class="carousel-page">
                 <div id="page-one">
-                    <h2>The Origin of <span id="hero-name-span">Loading</span></h2>
+                    <h2>The Origin of <span id="hero-name-span">[Loading...]</span></h2>
                     <div id="origin-box"></div>
                     <div id="details-box">
                         <section>
@@ -99,31 +99,33 @@
             </div>
             <!-- carousel page two -->
             <div class="carousel-page">
-                <div>
+                    <div id="page-two-box">
                     <div id="page-two">
                         <div id="column-one">
                             <h3 id="issue-name"></h3>
                             <img id="issue-img">
                             <div id="issue-desc"></div>
                         </div>
-                        <section id="one-liner-box">
-                            <article>
-                                <div class="one-liner">
-                                    <h4>Publisher: <div class="spacer"></div><span class="expandable-right" id="hero-publisher"></span></h4>
-                                </div>
-                                <div class="one-liner">
-                                    <h4>Number of Apperances: <div class="spacer"></div><span class="expandable-right" id="appearance-count"></span></h4>
-                                </div>
-                                <div class="one-liner">
-                                    <h4>Cover Date: <div class="spacer"></div><span class="expandable-right" id="cover-date"></span></h4>
-                                </div>
-                                <div class="one-liner">
-                                    <h4>Store Date: <div class="spacer"></div><span class="expandable-right" id="store-date"></span></h4>
-                                </div>
-                            </article>
-                        </section>
+                        <div id="column-two">
+                            <details>
+                                <summary>Publisher</summary>
+                                <p id="hero-publisher"></p>
+                            </details>
+                            <details>
+                                <summary>Number of Appearances</summary>
+                                <p id="appearance-count"></p>
+                            </details>
+                            <details>
+                                <summary>Cover Date</summary>
+                                <p id="cover-date"></p>
+                            </details>
+                            <details>
+                                <summary>Store Date</summary>
+                                <p id="store-date"></details>
+                            </details>
+                        </div>
                     </div>
-                </div>
+            </div>
             </div>
         </section>
     </main>
