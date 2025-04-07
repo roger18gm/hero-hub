@@ -21,6 +21,7 @@
 
 #favoritedList{
     display: flex;
+    flex-wrap: wrap;
     gap: 3em;
     margin-inline: 1vw;
 }
@@ -46,4 +47,13 @@
 
 .cardHeroName{
     text-align: center;
+}
+
+@media (max-width:600px){
+    #favoritedList{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+    }
 }

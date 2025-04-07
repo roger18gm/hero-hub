@@ -185,7 +185,6 @@ body{
     margin: 0 auto;
     padding: 2em;
     flex-direction: column;
-    align-items: center;
     width: 90vw;
     height: max-content;
     border: solid 2px black;
@@ -250,22 +249,11 @@ details p{
     word-wrap: break-word; /* Breaks long words */
     overflow-wrap: break-word; /* Ensures overflow for all browsers */
   }
-
-  #page-two{
-    border: none;
-    margin: none;
-    padding: none;
-  }
-  #column-one{
-    padding: none;
-    margin: none;
-    align-items: center;
-    text-align: justify;
-  }
 }
 @media (max-width:680px){
   #hero-img-page{
     max-width: 50vw;
+    padding-top: 0.7em;
   }
   #saveHeroBtn {
     padding: 0.5em;
@@ -278,4 +266,29 @@ details p{
     justify-content: space-around;
   }
 
+  #page-two{
+    border: none;
+    width: 80vw;
+  }
+
+  .clicked-one-liner{
+    background-color: aquamarine;
+    width: calc(var(--dynamic-width) + (var(--dynamic-width) / 10));
+    padding-right: calc(var(--dynamic-width) / 3);
+    opacity: 1;
+  }
+
+  #saveHeroBtn{
+    transform: scale(80%);
+  }
+
+  #saveHeroBtn:hover {
+    transform: none;
+  }
+  #column-one{
+    padding: none;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: justify;
+  }
 }

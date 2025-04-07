@@ -1,7 +1,7 @@
 // This file contains all of the functions needs to work with the local server. 
 // The base URL is " http://localhost:8080/superheroes/ "
-const baseUrl = "http://localhost:8080/superheroes/"
-// const baseUrl = "https://herohub-springboot-app.onrender.com/superheroes/";
+// const baseUrl = "http://localhost:8080/superheroes/"
+const baseUrl = "https://herohub-springboot-app.onrender.com/superheroes/";
 
 export const getHeroByName = async(name) => {
     try {

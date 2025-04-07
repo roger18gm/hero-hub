@@ -1,5 +1,4 @@
-import { getHeroByName, 
-         getHeroById,
+import { getHeroById,
          getIssueById } from "./api.mjs";
 import { handleSearchQuery } from "./handleSearchQuery.mjs";
 import { openCloseNavMenu } from "./navigation.mjs";
@@ -33,6 +32,15 @@ import { favoriteHero,
       
       // Clean up the temporary element
       document.body.removeChild(tempElement);
+    
+      // Mobile animation
+      if (window.innerWidth <= 680){
+        document.querySelectorAll(".one-liner").forEach( element =>{
+          element.addEventListener("click", ()=>{
+            element.classList.toggle("clicked-one-liner");
+          });
+        })
+      }
     });
   }
 
@@ -148,6 +156,7 @@ const initFocusPage = async() =>{
     populatePageTwo(hero, issue);
   } else {
     const batman = await getHeroById(1699);
+    const issue = await getIssueById(batman.first_appeared_in_issue.id);
     activeHero = batman;
     if (checkHeroPresence( activeHero )){
       document.querySelector("#saveHeroBtn").innerHTML = "Favorited";
