@@ -78,7 +78,7 @@ const populateTitleAndImage = (heroObj) =>{
 
 const getAliases = (heroObj) =>{
   const string = heroObj.aliases;
-  return string.split("\n");
+  return heroObj.aliases !== null ? string.split("\n") : null;
 }
 
 const populatePageOne = (heroObj) =>{
@@ -87,10 +87,16 @@ const populatePageOne = (heroObj) =>{
   document.querySelector("#origin-box").innerHTML = heroObj.deck;
   document.querySelector("#origin-box").style
   const aliasList = document.querySelector("#alias-list");
-  getAliases(heroObj).forEach( alias =>{
-    aliasList.insertAdjacentHTML( "beforeend", `<li>${alias}</li>`);
-  });
 
+  const aliases = getAliases(heroObj); 
+  if (aliases){
+    aliases.forEach( alias =>{
+      aliasList.insertAdjacentHTML( "beforeend", `<li>${alias}</li>`);
+    });
+  } else {
+      aliasList.insertAdjacentHTML( "beforeend", "<li>None Available</li>");
+  }
+   
   document.querySelector("#heroRealName").innerHTML = heroObj.real_name !== null ? heroObj.real_name : "Not Available";
   document.querySelector("#heroOrigin").innerHTML = heroObj.origin.name !== null ? heroObj.origin.name : "Not Available";  
 
