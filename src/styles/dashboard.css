@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+
+
+
+/* 
+*   Bookmarked hero styling.
+*/
+#favoriteListTitle{
+    background-color: aquamarine;
+    text-align: center;
+    border: solid 2px black;
+    border-radius: 20px;
+    margin-inline: 1vw;
+}
+
+#favoritedList{
+    display: flex;
+    gap: 3em;
+    margin-inline: 1vw;
+}
+.heroCard{
+    display: flex;
+    flex-direction: column; 
+    max-width: 200px;
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: aquamarine;
+    transition: transform 0.3s ease-in-out;
+}
+
+.heroCard:hover{
+    transform: scale(1.05);
+}
+
+.cardImage{
+    border-radius: 20px;
+    max-width: 190px;
+    padding: 6px;
+}
+
+.cardHeroName{
+    text-align: center;
+}
