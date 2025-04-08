@@ -68,11 +68,24 @@ import { favoriteHero,
         pageOneBtn.classList.add('active-page');
         pageTwoBtn.classList.remove('active-page');
         pageTwoBtn.classList.add('inactive-page');
+      
+        // Aria label handling
+        document.getElementById('pageOneBtn').setAttribute('aria-selected', 'true');
+        document.getElementById('pageTwoBtn').setAttribute('aria-selected', 'false');
+        document.getElementById('page-one').setAttribute('aria-hidden', 'false');
+        document.getElementById('page-two').setAttribute('aria-hidden', 'true');
+
       } else if (pageIndex === 1) {
         pageTwoBtn.classList.remove('inactive-page');
         pageTwoBtn.classList.add('active-page');
         pageOneBtn.classList.remove('active-page');
         pageOneBtn.classList.add('inactive-page');
+
+        // Aria label handling
+        document.getElementById('pageOneBtn').setAttribute('aria-selected', 'false');
+        document.getElementById('pageTwoBtn').setAttribute('aria-selected', 'true'); 
+        document.getElementById('page-one').setAttribute('aria-hidden', 'true');
+        document.getElementById('page-two').setAttribute('aria-hidden', 'false');
       }
     }
   });

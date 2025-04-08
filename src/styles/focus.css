@@ -7,6 +7,11 @@ body{
     overflow-x: hidden;
 }
 
+main{
+  background-color: white;
+  padding: 0.25em 0;
+}
+
 #big-title {
     display: block;
     padding: 2px;

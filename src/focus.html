@@ -37,7 +37,79 @@
                 </svg>
             </button>
         </div>
-        <!-- <a class="search-icon" href="#hero-footer">
+    </header>
+        <main>
+            <h1 class="visually-hidden">Hero Details Page</h1>
+            <h2 id="big-title" aria-live="polite"></h2>
+            <button id="saveHeroBtn" aria-label="Save hero information">Loading...</button>
+            <img id="hero-img-page" alt="Portrait of the selected hero">
+            <div id="switch-toggle-box" role="tablist" aria-label="Hero information tabs">
+                <button id="pageOneBtn" class="active-page" aria-label="View hero origin page" aria-selected="true" aria-controls="page-one" role="tab"></button>
+                <button id="pageTwoBtn" class="inactive-page" aria-label="View hero details page" aria-selected="false" aria-controls="page-two" role="tab"></button>
+            </div>
+            <section id="carousel" role="region" aria-label="Hero information carousel">
+                <!-- carousel page one -->
+                <div class="carousel-page" role="tabpanel" aria-labelledby="pageOneBtn">
+                    <div id="page-one" aria-label="Hero Origin" aria-hidden="false">
+                        <h2>The Origin of <span id="hero-name-span" aria-live="polite">[Loading...]</span></h2>
+                        <div id="origin-box" aria-live="polite"></div>
+                        <div id="details-box">
+                            <section aria-labelledby="alias-heading">
+                                <ul id="alias-list"><h3 id="alias-heading">Aliases</h3>
+                                </ul>
+                            </section>
+                            <section id="one-liner-box">
+                                <article>
+                                    <div class="one-liner">
+                                        <h4>Real Name: <div class="spacer"></div><span class="expandable-right" id="heroRealName" aria-live="polite"></span></h4>
+                                    </div>
+                                    <div class="one-liner">
+                                        <h4>Origin: <div class="spacer"></div><span class="expandable-right" id="heroOrigin" aria-live="polite"></span></h4>
+                                    </div>
+                                    <div class="one-liner">
+                                        <h4>Gender: <div class="spacer"></div><span class="expandable-right" id="heroSex" aria-live="polite"></span></h4>
+                                    </div>
+                                    <div class="one-liner">
+                                        <h4>Birth: <div class="spacer"></div><span class="expandable-right" id="heroDoB" aria-live="polite"></span></h4>
+                                    </div>
+                                </article>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- carousel page two -->
+                <div class="carousel-page" role="tabpanel" aria-labelledby="pageTwoBtn">
+                    <div id="page-two-box">
+                        <div id="page-two" aria-label="Hero Details" aria-hidden="true">
+                            <div id="column-one">
+                                <h3 id="issue-name" aria-live="polite"></h3>
+                                <img id="issue-img" alt="Cover of the comic issue">
+                                <div id="issue-desc" aria-live="polite"></div>
+                            </div>
+                            <div id="column-two">
+                                <details>
+                                    <summary>Publisher</summary>
+                                    <p id="hero-publisher" aria-live="polite"></p>
+                                </details>
+                                <details>
+                                    <summary>Number of Appearances</summary>
+                                    <p id="appearance-count" aria-live="polite"></p>
+                                </details>
+                                <details>
+                                    <summary>Cover Date</summary>
+                                    <p id="cover-date" aria-live="polite"></p>
+                                </details>
+                                <details>
+                                    <summary>Store Date</summary>
+                                    <p id="store-date" aria-live="polite"></p>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <a class="search-icon" href="#hero-footer">
             <svg class="icon">
                 <use 
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -54,78 +126,6 @@
                 ></use>
             </svg>
             <span class="visually-hidden">Open</span> Menu
-        </button> --> 
-    </header>
-    <main>
-        <h2 id="big-title"></h2>
-        <button id="saveHeroBtn">Loading...</button>
-        <img id="hero-img-page" alt="Image of hero">
-        <div id="switch-toggle-box">
-            <button id="pageOneBtn" class="active-page"></button>
-            <button id="pageTwoBtn" class="inactive-page"></button>
-        </div>
-        <section id="carousel">
-            <!-- carousel page one -->
-            <div class="carousel-page">
-                <div id="page-one">
-                    <h2>The Origin of <span id="hero-name-span">[Loading...]</span></h2>
-                    <div id="origin-box"></div>
-                    <div id="details-box">
-                        <section>
-                            <ul id="alias-list"><h3>Aliases</h3>
-                            </ul>
-                        </section>
-                        <section id="one-liner-box">
-                            <article>
-                                <div class="one-liner">
-                                    <h4>Real Name: <div class="spacer"></div><span class="expandable-right" id="heroRealName"></span></h4>
-                                </div>
-                                <div class="one-liner">
-                                    <h4>Origin: <div class="spacer"></div><span class="expandable-right" id="heroOrigin"></span></h4>
-                                </div>
-                                <div class="one-liner">
-                                    <h4>Gender: <div class="spacer"></div><span class="expandable-right" id="heroSex"></span></h4>
-                                </div>
-                                <div class="one-liner">
-                                    <h4>Birth: <div class="spacer"></div><span class="expandable-right" id="heroDoB"></span></h4>
-                                </div>
-                            </article>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <!-- carousel page two -->
-            <div class="carousel-page">
-                    <div id="page-two-box">
-                    <div id="page-two">
-                        <div id="column-one">
-                            <h3 id="issue-name"></h3>
-                            <img id="issue-img">
-                            <div id="issue-desc"></div>
-                        </div>
-                        <div id="column-two">
-                            <details>
-                                <summary>Publisher</summary>
-                                <p id="hero-publisher"></p>
-                            </details>
-                            <details>
-                                <summary>Number of Appearances</summary>
-                                <p id="appearance-count"></p>
-                            </details>
-                            <details>
-                                <summary>Cover Date</summary>
-                                <p id="cover-date"></p>
-                            </details>
-                            <details>
-                                <summary>Store Date</summary>
-                                <p id="store-date"></details>
-                            </details>
-                        </div>
-                    </div>
-            </div>
-            </div>
-        </section>
-    </main>
     <footer>
         <h2>Professional Profiles:</h2>
         <a class="footer-link" href="https://github.com/roger18gm"><img class="linkedin-svg" src="images/icons8-linkedin.svg"/>Roger Galan</a>
@@ -142,3 +142,4 @@
     <script type="module" src="scripts/focus.mjs"></script>
 </body>
 </html>
+
