@@ -21,7 +21,19 @@ const generateFavoriteHeroCards = async() =>{
                     <a href="focus.html?heroId=${hero.id}"><img class="cardImage" alt="Image of hero" src="${hero.image.original_url}"></a>
                     <h2 class="cardHeroName">${hero.name}</h2>
                 </div> 
-            `)
+            `);
+            let prerenderLink = document.createElement('link');
+            prerenderLink.rel = 'prerender';
+            prerenderLink.href = `focus.html?heroId=${hero.id}`;
+            
+            // Fallback prefetch for browsers that don't support prerender
+            let prefetchLink = document.createElement('link');
+            prefetchLink.rel = 'prefetch';
+            prefetchLink.href = `focus.html?heroId=${hero.id}`;
+            
+            // Append to document head
+            document.head.appendChild(prerenderLink);
+            document.head.appendChild(prefetchLink);
         });
     }
 }

@@ -77,5 +77,4 @@ const searchResultHeroCardTemplate = (data) => {
 const displaySearchResultHeroCards = (data) => {
     const heroCardsHTML = data.map(searchResultHeroCardTemplate);
     searchResultsDiv.insertAdjacentHTML("beforeend", heroCardsHTML.join("")); //.join("") gets rid of comma from map()
-    
 }

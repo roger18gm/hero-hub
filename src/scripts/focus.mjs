@@ -5,8 +5,6 @@ import { openCloseNavMenu } from "./navigation.mjs";
 import { favoriteHero,
          removeFromFavorites,
          checkHeroPresence } from "./favoriteHero.mjs";
-
-
 // ---------- CAROUSEL BUTTONS
   const setDynamicWidth = () => {
     const expandables = document.querySelectorAll('.expandable-right');
@@ -180,6 +178,7 @@ const initFocusPage = async() =>{
     populatePageOne(batman);
     populateTitleAndImage(batman);
     populatePageTwo( batman, issue );
+
   }
 }
 
@@ -189,6 +188,16 @@ var activeHero;
 openCloseNavMenu();
 handleSearchQuery();
 initFocusPage();
+
+// Remove loading screen
+document.querySelector("#hero-img-page").addEventListener("load", () =>{
+    const loadingText = document.querySelector("#loadingText");
+    console.log(loadingText);
+    loadingText.parentNode.removeChild(loadingText);
+
+    document.querySelector("#focusMain").classList.add("visibleMain");
+});
+
 // ---------- INIT PAGE
 // ---------- MANAGE FAVORITE HERO
 const favoriteHeroManager = ( hero, save ) =>{
