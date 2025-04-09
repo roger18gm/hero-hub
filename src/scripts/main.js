@@ -2,7 +2,7 @@ import { handleSearchQuery } from "./handleSearchQuery.mjs";
 import { openCloseNavMenu } from "./navigation.mjs";
 
 const nullValuePhrase = `Oops, no data..`;
-const targetContainer = document.querySelector("#favoritedList");
+const targetContainer = document.querySelector("#mission-statement");
 const baseUrl = "http://localhost:8080/superheroes/";
 // const baseUrl = "https://herohub-springboot-app.onrender.com/superheroes/";
 
@@ -123,7 +123,7 @@ const displayMovieDiv = async () => {
     if (movieJson.error == "Object Not Found") {
         console.log("refresh for a valid movie")
     } else {
-        targetContainer.insertAdjacentHTML("beforebegin", movieHTMLTemplate(movieJson.results));
+        targetContainer.insertAdjacentHTML("afterend", movieHTMLTemplate(movieJson.results));
     }
 }
 

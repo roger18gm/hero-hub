@@ -4,13 +4,28 @@ import { openCloseNavMenu } from "./navigation.mjs";
 
 const searchResultsDiv = document.getElementById('search-results');
 
-document.addEventListener('DOMContentLoaded', () => {
+const createLoadingSkeleton = (count = 3) => {
+    let skeletonHTML = '';
+    for (let i = 0; i < count; i++) {
+      skeletonHTML += `
+        <section class="hero-card skeleton">
+          <div class="skeleton-name"></div>
+          <div class="skeleton-image"></div>
+          <div class="skeleton-link"></div>
+        </section>
+      `;
+    }
+    return skeletonHTML;
+  };
 
+document.addEventListener('DOMContentLoaded', () => {
     // Get the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('query');
 
     if (query) {
+        // Display loading skeleton immediately
+        searchResultsDiv.innerHTML = createLoadingSkeleton();
         try {
             getSuperHeroData(query);
             console.log("success?")
@@ -19,42 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error(error);
         }
     } else {
-        searchResultsDiv.textContent = 'No query provided.';
+        searchResultsDiv.textContent = 'No query provided. Try entering a character! Ex: "Spider-Man"';
     }
 });
 
-
-// const getSuperHeroData = async (heroName) => {
-//     try {
-//         // const response = await fetch(`http://localhost:3000/api/superheroes/${heroName}`);
-//         const response = await getHeroByName(heroName);
-
-//         if (response.ok) {
-//             const data = await response.json();
-//             console.log("hero data: ", data)
-//             console.log(data.results[0]);
-//             displaySearchResultHeroCards(data.results);
-//         } else {
-//             console.error("Error: ", response.statusText);
-//         }
-//     } catch {
-//         console.error("request failed: ", error)
-//     }
-// };
-
 const getSuperHeroData = async (heroName) => {
     try {
+        // Remove the loading skeleton
         const data = await getHeroByName(heroName); // Get the JSON data directly
 
         if (data) { // Check if data exists
             console.log("hero data: ", data);
             console.log(data.results[0]);
+            searchResultsDiv.innerHTML = '';
             displaySearchResultHeroCards(data.results);
         } else {
             console.error("Error: Hero data not found or error occurred.");
         }
     } catch (error) {
         console.error("request failed: ", error);
+    } finally {
     }
 };
 
