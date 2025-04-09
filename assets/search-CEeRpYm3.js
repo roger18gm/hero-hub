@@ -1,4 +1,4 @@
-import{b as a,o as n,h as t}from"./api-CtMJ6fIF.js";const s=document.getElementById("search-results"),c=(r=3)=>{let e="";for(let o=0;o<r;o++)e+=`
+import{b as a,o as n,h as t}from"./api-9sUQgsAB.js";const s=document.getElementById("search-results"),c=(r=3)=>{let e="";for(let o=0;o<r;o++)e+=`
         <section class="hero-card skeleton">
           <div class="skeleton-name"></div>
           <div class="skeleton-image"></div>
