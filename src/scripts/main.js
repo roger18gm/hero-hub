@@ -3,8 +3,8 @@ import { openCloseNavMenu } from "./navigation.mjs";
 
 const nullValuePhrase = `Oops, no data..`;
 const targetContainer = document.querySelector("#mission-statement");
-const baseUrl = "http://localhost:8080/superheroes/";
-// const baseUrl = "https://herohub-springboot-app.onrender.com/superheroes/";
+// const baseUrl = "http://localhost:8080/superheroes/";
+const baseUrl = "https://herohub-springboot-app.onrender.com/superheroes/";
 
 const init = () => {
     openCloseNavMenu();
