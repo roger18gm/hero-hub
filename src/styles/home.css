@@ -1,11 +1,40 @@
+#hero-banner {
+  width: 100%; 
+  overflow: hidden; /* Hide any part of the image that extends beyond the banner's bounds */
+  position: relative; /* Needed for absolute positioning of text if desired */
+}
+
+#hero-banner img {
+  display: block; /* Remove any default inline spacing */
+  width: 100%;
+  height: 400px; /* Maintain aspect ratio initially */
+  object-fit: cover; /* Cover the entire banner area, potentially cropping */
+  object-position: center center; /* Default: Center the image */
+}
+
+#hero-text {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute; /* Example: Position text over the image */
+  bottom: 0;
+  left: 0;
+}
+
+#mission-statement {
+    font-size: 1.4rem;
+    padding: 30px;
+}
 #subscribe-section {
-    border: grey solid 3px;
     display:flex;
     flex-direction: column;
-    margin: 15px;
+    margin: 75px 15px;
     padding: 20px;
     border-radius: 10px;
-
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.432);
 }
 #subscribe-section h2 {
     margin-top: 0;
@@ -13,18 +42,62 @@
 }
 #subscribe-section input,label, textarea {
     width:99%;
-    /* min-width: 0; */
-    /* flex-basis: 100%; */
-    /* padding: 10px; */
     padding: 15px 5px;
     margin-bottom: 20px;
-    /* margin-right: 30px; */
     margin-top: 5px;
     font-family: Inter;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.412);
 }
 #subscribe-section button {
     padding: 10px;
     width: 100%;
     font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(108, 118, 255);
+    color: white;
+    border: none;
+}
+
+.movie-spotlight {
+    background-color: rgb(108, 118, 255);
+    color: rgb(255, 255, 255);
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.movie-spotlight > img {
+    max-width:350px;
+}
+.movie-heading {
+    text-align: center;
+}
+@media screen and (min-width: 1000px) {
     
+    #hero-banner img {
+    object-position: center center; /* Default centering on larger screens */
+    height: 900px;
+
+    }
+
+    #hero-text h1 {
+    font-size: 3em;
+    }
+
+    #hero-text h2 {
+    font-size: 1.5em;
+    }
+    
+    #mission-statement {
+        font-size: 2.3rem;
+        padding: 50px;
+    }
+
+    #subscribe-section {
+        width: 700px;
+        justify-self: center;
+    }
 }

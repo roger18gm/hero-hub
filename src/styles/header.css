@@ -1,11 +1,11 @@
 header {
-    background-color: rgb(211, 243, 159);
+    background-color: aquamarine;
+}
+header p {
+    padding-left: 20px;
 }
 .menu-dropdown{
-    /* display: block; */
-    /* width: 100%; */
-    background-color: #C0BABC;
-    /* padding: 25px; */
+    background-color: rgb(108, 118, 255);
     max-height: 0;
     overflow: hidden;
     transition: all 0.5s;
@@ -36,9 +36,6 @@ nav li {
     font-family: Teko;
     text-transform:uppercase;
     color: white;
-    /* padding: 15px;
-    background-color: grey;
-    border-radius: 10px; */
 }
 #toggle-nav-btn{
     background: none;
@@ -80,7 +77,6 @@ nav li {
     border-radius: 10px;
     height: 50px;
     cursor: pointer;
-
 }
 #search-svg {
     width: 50px;

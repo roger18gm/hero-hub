@@ -1,5 +1,6 @@
 footer {
-    background-color: rgb(211, 243, 159);
+    /* background-color: rgb(108, 118, 255); */
+    background-color:aquamarine;
     font-family: Inter;
     margin-top: 50px;
     padding: 10px 25px 25px 25px;
@@ -10,10 +11,10 @@ footer {
     align-items: center;
     gap: 10px;
     padding-bottom: 10px;
-    font-family: Inter;
-    font-size: 1.5rem;
+    font-family: Teko;
+    font-size: 2.2rem;
     text-decoration: none;
-    color: white;
+    color: black;
     /* background-color: grey; */
 }
 footer h2 {
