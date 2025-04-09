@@ -115,6 +115,11 @@ h1 {
         left: -15px;
         width: 100%;
         padding: 15px;
+        background-color: rgb(108, 118, 255);
+        transition: ease-in-out 0.5s;
+    }
+    .link-div:hover {
+        background-color:rgb(77, 85, 195);   
     }
     
 }
